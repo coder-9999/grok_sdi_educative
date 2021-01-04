@@ -1,4 +1,5 @@
 ### LSM Trees ###
+LSM Trees takes ideas from Log-structured storage where write amplification is reduced by batching small random writes together in memory. To reclaim space occupied by removed segments, LSS periodically triggers garbage collection.
   - Immutable data structure
   - optimized for write performance, done at the expense of reads, which have to retrieve multiple data record versions and reconcile them
   - write operations to disk are sequential( writes are appended to memtables and written to disk sequentially)
