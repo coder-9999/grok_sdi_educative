@@ -4,6 +4,11 @@
   - write operations to disk are sequential( writes are appended to memtables and written to disk sequentially)
   - Require maintainece since many files get accumated on disk and reads need to read many SStables to return results + space ampilfication due to redundant records, hence, periodic compaction needed to keep only live records
   - Concurremcy??? Concurrent access is possible without any locks since the structures are immutable
+  
+Components
+  - Write ahead log( because main memory is volatile)
+  - Memtable (in main memory)
+  - SSTables ( Disk resident tables ) : Each SStable has index file + data file + bloom filter + more based on implementaion
 
 Compaction
   - Merging and reconcilation for disk resident SSTables done using multiway merge sort/ m- way merge sort where m is the number of SStables being merged
