@@ -17,6 +17,10 @@ Pages are used by some operating systems instead of blocks. A page is basically 
 Pages are used because they make processing easier when there are many storage devices, because each device may support a different block size. With pages the operating system can deal with just a fixed size page, rather than try to figure out how to deal with blocks that are all different sizes. So, pages act as sort of a middleman between operating systems and hardware drivers, which translate the pages to the appropriate blocks. But, both pages and blocks are used as a unit of data storage.
 
 ## File Formats ##
+An important thing to watch out for when storing data on disks is that, disks are slow. So, there are special data structures which have been designed to store "searchable" data on disks. Accessing nodes of a binary search tree stored on disks using (file, offset) pointer would be orders of magnitude slower than accessing them in memory.
+
+If speed of access is important, you'd want to store things which are expected to accessed together, closer together on disks. A couple of data structures used for this are B-tree and B+ tree. The way they are implemented to raed and write efficiently to disk is reffered to as  implementation of a file format
+
 A file format is a standard way that information is encoded for storage in disk. It specifies how bits are used to encode information in a digital storage medium and how they should be interpreted when being read. If you want to create a format, it’s easy. Open a file handle and start writing bits to the disk. When you are done writing bits, stop. If you would like to be able to read them back, document what each of the bits mean.
 
 There are existing text file formats like txt, csv, xml and other binary file formats. When the existing file formats do not meets the requirements of application forr minium I/O and seeks, application go for their own file formats. This is what most storage engines also do.
@@ -26,5 +30,5 @@ Some great documentation can be found here- http://cloudsqale.com/2020/05/29/how
 and https://medium.com/swlh/insights-into-parquet-storage-ac7e46b94ffe
 parquet vs other file formats like avro, thrift, proto ->https://dzone.com/articles/understanding-how-parquet
 
-Parquet file format-
+
 ![image](https://user-images.githubusercontent.com/61680056/103650542-36e32580-4f86-11eb-853b-e1f8b055d1f6.png)
