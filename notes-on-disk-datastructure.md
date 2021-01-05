@@ -25,3 +25,6 @@ There are existing text file formats like txt, csv, xml and other binary file fo
 Some great documentation can be found here- http://cloudsqale.com/2020/05/29/how-parquet-files-are-written-row-groups-pages-required-memory-and-flush-operations/
 and https://medium.com/swlh/insights-into-parquet-storage-ac7e46b94ffe
 parquet vs other file formats like avro, thrift, proto ->https://dzone.com/articles/understanding-how-parquet
+
+Parquet file format-
+![image](https://user-images.githubusercontent.com/61680056/103650542-36e32580-4f86-11eb-853b-e1f8b055d1f6.png)
