@@ -21,6 +21,7 @@ A file format is a standard way that information is encoded for storage in disk.
 
 There are existing text file formats like txt, csv, xml and other binary file formats. When the existing file formats do not meets the requirements of application forr minium I/O and seeks, application go for their own file formats. This is what most storage engines also do.
 
-**Parquet** is also an example of a file format constructed to optimize for storage and querying. Here, row groups maps to disk blocks and column chunks to an array of OS pages.
+**Parquet** is also an binary encoding/binary file format constructed to optimize for storage and querying. Here, row groups maps to disk blocks and column chunks to an array of OS pages.
 Some great documentation can be found here- http://cloudsqale.com/2020/05/29/how-parquet-files-are-written-row-groups-pages-required-memory-and-flush-operations/
 and https://medium.com/swlh/insights-into-parquet-storage-ac7e46b94ffe
+parquet vs other file formats like avro, thrift, proto ->https://dzone.com/articles/understanding-how-parquet
