@@ -1,3 +1,4 @@
+## Disk Related concepts ##
 If you know about structs in C, when you define an struct you can always know in advance how many bytes it will take and even the alignment of each field. This allows to read and write those structs directly from and to disk.
 These structures are the origin of the concept of file.
 
@@ -14,3 +15,12 @@ Pages are used by some operating systems instead of blocks. A page is basically 
 
 **Why pages may be used instead of blocks??**
 Pages are used because they make processing easier when there are many storage devices, because each device may support a different block size. With pages the operating system can deal with just a fixed size page, rather than try to figure out how to deal with blocks that are all different sizes. So, pages act as sort of a middleman between operating systems and hardware drivers, which translate the pages to the appropriate blocks. But, both pages and blocks are used as a unit of data storage.
+
+## File Formats ##
+A file format is a standard way that information is encoded for storage in disk. It specifies how bits are used to encode information in a digital storage medium and how they should be interpreted when being read. If you want to create a format, it’s easy. Open a file handle and start writing bits to the disk. When you are done writing bits, stop. If you would like to be able to read them back, document what each of the bits mean.
+
+There are existing text file formats like txt, csv, xml and other binary file formats. When the existing file formats do not meets the requirements of application forr minium I/O and seeks, application go for their own file formats. This is what most storage engines also do.
+
+**Parquet** is also an example of a file format constructed to optimize for storage and querying. Here, row groups maps to disk blocks and column chunks to an array of OS pages.
+Some great documentation can be found here- http://cloudsqale.com/2020/05/29/how-parquet-files-are-written-row-groups-pages-required-memory-and-flush-operations/
+and https://medium.com/swlh/insights-into-parquet-storage-ac7e46b94ffe
